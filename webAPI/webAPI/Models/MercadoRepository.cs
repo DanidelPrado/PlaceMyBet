@@ -72,5 +72,34 @@ namespace webAPI.Models
                 return null;
             }
         }
+
+        internal List<Mercado> RetrieveIdMercado(int id, double tipo)
+        {
+            MySqlConnection conectar = conexion();
+            MySqlCommand command = conectar.CreateCommand();
+            command.CommandText = "select * from mercado where id_Evento = @A and tipoMercado = @A2";
+            command.Parameters.AddWithValue("@A", id);
+            command.Parameters.AddWithValue("@A2", tipo);
+            try
+            {
+                conectar.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                Mercado ap = null;
+                List<Mercado> listaMercado = new List<Mercado>();
+                while (reader.Read())
+                {
+                    ap = new Mercado(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetDouble(4), reader.GetDouble(5), reader.GetInt32(6));
+                    listaMercado.Add(ap);
+                }
+                conectar.Close();
+                return listaMercado;
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
     }
 }

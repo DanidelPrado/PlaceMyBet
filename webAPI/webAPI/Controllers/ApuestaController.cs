@@ -29,6 +29,21 @@ namespace webAPI.Controllers
             return apuestas;
         }
 
+        [Authorize(Roles = "Admin")]
+        public List<ApuestaDTO2> GetEmailTipo(string email, double tipo)
+        {
+            var repository = new ApuestaRepository();
+            List<ApuestaDTO2> listaApuesta = repository.RetrieveEmailTipo(email, tipo);
+            return listaApuesta;
+        }
+        [Authorize(Roles = "Admin")]
+        public List<ApuestaDTO3> GetEmailId(string email, int id)
+        {
+            var repository = new ApuestaRepository();
+            List<ApuestaDTO3> listaApuesta = repository.RetrieveEmailId(email, id);
+            return listaApuesta;
+        }
+
         // GET: api/Apuesta/5
         public string Get(int id)
         {
@@ -36,6 +51,7 @@ namespace webAPI.Controllers
         }
 
         // POST: api/Apuesta
+        [Authorize]
         public void Post([FromBody]Apuesta apuesta)
         {
             var repo = new ApuestaRepository();

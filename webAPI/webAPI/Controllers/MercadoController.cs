@@ -30,6 +30,15 @@ namespace webAPI.Controllers
             return mercados;
         }
 
+        [HttpGet]
+        [ActionName("GetMercadoId")]
+        public List<Mercado> Get(int id, double tipo)
+        {
+            var repository = new MercadoRepository();
+            List<Mercado> listaMercado = repository.RetrieveIdMercado(id, tipo);
+            return listaMercado;
+        }
+
         // GET: api/Mercado/5
         public string Get(int id)
         {

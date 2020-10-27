@@ -48,4 +48,35 @@ namespace webAPI.Models
         public double Dinero { get; set; }
         public string Fecha { get; set; }
     }
+
+    public class ApuestaDTO2
+    {
+        public int Id_Mercado { get; set; }
+        public string Tipo_Cuota { get; set; }
+        public double Cuota { get; set; }
+        public double Dinero { get; set; }
+
+        public ApuestaDTO2(string tipo_cuota, double cuota, double dinero, int id_mercado)
+        {
+            Tipo_Cuota = tipo_cuota;
+            Cuota = cuota;
+            Dinero = dinero;
+            Id_Mercado = id_mercado;
+        }
+    }
+    public class ApuestaDTO3
+    {
+        public double Tipo_Mercado { get; set; }
+        public string Tipo_Cuota { get; set; }
+        public double Cuota { get; set; }
+        public double Dinero { get; set; }
+
+        public ApuestaDTO3(double tipo_mercado, string tipo_cuota, double cuota, double dinero)
+        {
+            Tipo_Mercado = tipo_mercado;
+            Tipo_Cuota = tipo_cuota;
+            Cuota = cuota;
+            Dinero = dinero;
+        }
+    }
 }

@@ -154,5 +154,68 @@ namespace webAPI.Models
 
 
         }
+
+        internal List<ApuestaDTO2> RetrieveEmailTipo(string email, double tipo)
+        {
+            MySqlConnection conectar = conexion();
+            MySqlCommand command = conectar.CreateCommand();
+            command.CommandText = "select * from apuesta where tipo_Mercado = @A and email = @A2;";
+            command.Parameters.AddWithValue("@A", tipo);
+            command.Parameters.AddWithValue("@A2", email);
+
+            try
+            {
+                conectar.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                ApuestaDTO2 ap = null;
+                List<ApuestaDTO2> listaApuesta = new List<ApuestaDTO2>();
+                while (reader.Read())
+                {
+
+                    ap = new ApuestaDTO2(reader.GetString(7), reader.GetDouble(2), reader.GetDouble(3), reader.GetInt32(0));
+                    listaApuesta.Add(ap);
+
+                }
+                conectar.Close();
+                return listaApuesta;
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
+        internal List<ApuestaDTO3> RetrieveEmailId(string email, int id)
+        {
+            MySqlConnection conectar = conexion();
+            MySqlCommand command = conectar.CreateCommand();
+            command.CommandText = "select * from apuesta where id_Mercado = @A and email = @A2;";
+            command.Parameters.AddWithValue("@A", id);
+            command.Parameters.AddWithValue("@A2", email);
+
+            try
+            {
+                conectar.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                ApuestaDTO3 ap = null;
+                List<ApuestaDTO3> listaApuesta = new List<ApuestaDTO3>();
+                while (reader.Read())
+                {
+
+                    ap = new ApuestaDTO3(reader.GetDouble(1), reader.GetString(7), reader.GetDouble(2), reader.GetDouble(3));
+                    listaApuesta.Add(ap);
+
+                }
+                conectar.Close();
+                return listaApuesta;
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
     }
 }
