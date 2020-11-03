@@ -12,6 +12,7 @@ namespace webAPI.Controllers
     public class ApuestaController : ApiController
     {
         // GET: api/Apuesta
+        [Authorize(Roles = "Standard")]
         [HttpGet]
         [ActionName("Get")]
         public IEnumerable<Apuesta> Get()
