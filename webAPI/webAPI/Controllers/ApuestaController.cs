@@ -25,12 +25,12 @@ namespace webAPI.Controllers
         }
 
         // POST: api/Apuesta
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/Apuesta/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
