@@ -39,12 +39,6 @@ namespace webAPI.Controllers
             return listaMercado;
         }
 
-        // GET: api/Mercado/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/Mercado
         public void Post([FromBody]string value)
         {

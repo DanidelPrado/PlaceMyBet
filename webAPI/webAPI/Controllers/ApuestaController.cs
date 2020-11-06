@@ -12,7 +12,7 @@ namespace webAPI.Controllers
     public class ApuestaController : ApiController
     {
         // GET: api/Apuesta
-        [Authorize(Roles = "Standard")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ActionName("Get")]
         public IEnumerable<Apuesta> Get()
@@ -30,25 +30,19 @@ namespace webAPI.Controllers
             return apuestas;
         }
 
-        [Authorize(Roles = "Admin")]
+
         public List<ApuestaDTO2> GetEmailTipo(string email, double tipo)
         {
             var repository = new ApuestaRepository();
             List<ApuestaDTO2> listaApuesta = repository.RetrieveEmailTipo(email, tipo);
             return listaApuesta;
         }
-        [Authorize(Roles = "Admin")]
+
         public List<ApuestaDTO3> GetEmailId(string email, int id)
         {
             var repository = new ApuestaRepository();
             List<ApuestaDTO3> listaApuesta = repository.RetrieveEmailId(email, id);
             return listaApuesta;
-        }
-
-        // GET: api/Apuesta/5
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST: api/Apuesta

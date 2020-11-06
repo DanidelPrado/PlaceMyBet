@@ -77,7 +77,7 @@ namespace webAPI.Models
         {
             MySqlConnection conectar = conexion();
             MySqlCommand command = conectar.CreateCommand();
-            command.CommandText = "select * from mercado where id_Evento = @A and tipoMercado = @A2";
+            command.CommandText = "select * from mercado where id_Evento = @A and tipo_Mercado = @A2";
             command.Parameters.AddWithValue("@A", id);
             command.Parameters.AddWithValue("@A2", tipo);
             try
