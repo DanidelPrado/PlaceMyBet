@@ -31,7 +31,7 @@ namespace webAPI.Models
 
                 while (reader.Read())
                 {
-                    Apuesta e = new Apuesta(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), reader.GetString(3), reader.GetDouble(4));
+                    Apuesta e = new Apuesta(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7));
                     apuesta.Add(e);
 
                 }
