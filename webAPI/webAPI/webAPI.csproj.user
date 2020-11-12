@@ -3,7 +3,11 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
+<<<<<<< HEAD
     <IISExpressSSLPort>44392</IISExpressSSLPort>
+=======
+    <IISExpressSSLPort>44324</IISExpressSSLPort>
+>>>>>>> AE3
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />

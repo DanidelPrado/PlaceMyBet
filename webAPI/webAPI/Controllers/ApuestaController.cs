@@ -12,6 +12,7 @@ namespace webAPI.Controllers
     public class ApuestaController : ApiController
     {
         // GET: api/Apuesta
+<<<<<<< HEAD
         [Authorize(Roles = "Standard")]
         [HttpGet]
         [ActionName("Get")]
@@ -23,6 +24,8 @@ namespace webAPI.Controllers
         }
         [HttpGet]
         [ActionName("GetDTO")]
+=======
+>>>>>>> AE3
         public IEnumerable<ApuestaDTO> GetDTO()
         {
             var repository = new ApuestaRepository();
@@ -30,6 +33,7 @@ namespace webAPI.Controllers
             return apuestas;
         }
 
+<<<<<<< HEAD
         [Authorize(Roles = "Admin")]
         public List<ApuestaDTO2> GetEmailTipo(string email, double tipo)
         {
@@ -54,13 +58,17 @@ namespace webAPI.Controllers
         // POST: api/Apuesta
         [Authorize]
         public void Post([FromBody]Apuesta apuesta)
+=======
+        // POST: api/Apuesta
+        public void Post([FromBody] Apuesta apuesta)
+>>>>>>> AE3
         {
             var repo = new ApuestaRepository();
             repo.Save(apuesta);
         }
 
         // PUT: api/Apuesta/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

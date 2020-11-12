@@ -30,6 +30,7 @@ namespace webAPI.Controllers
             return mercados;
         }
 
+<<<<<<< HEAD
         [HttpGet]
         [ActionName("GetMercadoId")]
         public List<Mercado> Get(int id, double tipo)
@@ -45,13 +46,15 @@ namespace webAPI.Controllers
             return "value";
         }
 
+=======
+>>>>>>> AE3
         // POST: api/Mercado
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/Mercado/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
