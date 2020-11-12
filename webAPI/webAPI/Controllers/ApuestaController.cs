@@ -13,16 +13,12 @@ namespace webAPI.Controllers
     {
         // GET: api/Apuesta
         [Authorize(Roles = "Admin")]
-        [HttpGet]
-        [ActionName("Get")]
         public IEnumerable<Apuesta> Get()
         {
             ApuestaRepository rep = new ApuestaRepository();
             List<Apuesta> lista = rep.retrieve();
             return lista;
         }
-        [HttpGet]
-        [ActionName("GetDTO")]
         public IEnumerable<ApuestaDTO> GetDTO()
         {
             var repository = new ApuestaRepository();
