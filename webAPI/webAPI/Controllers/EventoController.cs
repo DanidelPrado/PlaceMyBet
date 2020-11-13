@@ -8,20 +8,9 @@ using webAPI.Models;
 
 namespace webAPI.Controllers
 {
-    [Route("api/Evento/{action}")]
     public class EventoController : ApiController
     {
         // GET: api/Evento
-        [HttpGet]
-        [ActionName("Get")]
-        public IEnumerable<Evento> Get()
-        {
-            EventoRepository repository = new EventoRepository();
-            List<Evento> eventos = repository.retrieve();
-            return eventos;
-        }
-        [HttpGet]
-        [ActionName("GetDTO")]
         public IEnumerable<EventoDTO> GetDTO()
         {
             var repository = new EventoRepository();

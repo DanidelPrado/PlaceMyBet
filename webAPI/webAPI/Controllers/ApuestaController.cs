@@ -8,7 +8,6 @@ using webAPI.Models;
 
 namespace webAPI.Controllers
 {
-    [Route("api/Apuesta/{action}")]
     public class ApuestaController : ApiController
     {
         // GET: api/Apuesta
