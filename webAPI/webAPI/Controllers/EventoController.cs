@@ -11,7 +11,10 @@ namespace webAPI.Controllers
     public class EventoController : ApiController
     {
         // GET: api/Evento
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d2ea20c05167e8c916c2c48d7f94f391f910a0f
         public IEnumerable<EventoDTO> GetDTO()
         {
             var repository = new EventoRepository();
