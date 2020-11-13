@@ -8,10 +8,7 @@ using webAPI.Models;
 
 namespace webAPI.Controllers
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> 5d2ea20c05167e8c916c2c48d7f94f391f910a0f
     public class MercadoController : ApiController
     {
         // GET: api/Mercado
