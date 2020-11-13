@@ -34,4 +34,19 @@ namespace webAPI.Models
         public string Visitante { get; set; }
         public string Fecha { get; set; }
     }
+    // Ejercicio 1
+    public class EventoIdEvento
+    {
+        public EventoIdEvento(string local, string visitante, double tipo_mercado)
+        {
+            Local = local;
+            Visitante = visitante;
+            Tipo_Mercado = tipo_mercado;
+        }
+
+        public string Local { get; set; }
+        public string Visitante { get; set; }
+        public double Tipo_Mercado { get; set; }
+    }
+
 }

@@ -72,7 +72,36 @@ namespace webAPI.Models
                 return null;
             }
         }
+        //Ejercicio 1
+        internal List<EventoIdEvento> retrieveIdEvento(int idEvento)
+        {
+            MySqlConnection conectar = conexion();
+            MySqlCommand command = conectar.CreateCommand();
+            command.CommandText = "SELECT evento.`local`,evento.visitante,mercado.tipo_Mercado FROM evento INNER JOIN mercado ON evento.id_Evento = mercado.id_Evento INNER JOIN apuesta ON apuesta.id_Mercado = mercado.id_Mercado WHERE apuesta.dinero > 10 AND evento.id_Evento = @A;";
+            command.Parameters.AddWithValue("@A", idEvento);
+            try
+            {
+                conectar.Open();
+                MySqlDataReader reader = command.ExecuteReader();
 
+                EventoIdEvento e = null;
+                List<EventoIdEvento> listaEvento = new List<EventoIdEvento>();
+                while (reader.Read())
+                {
+
+                    e = new EventoIdEvento(reader.GetString(0), reader.GetString(1), reader.GetDouble(2));
+                    listaEvento.Add(e);
+
+                }
+                conectar.Close();
+                return listaEvento;
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
 
     }
 }

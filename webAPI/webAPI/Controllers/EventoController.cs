@@ -17,6 +17,13 @@ namespace webAPI.Controllers
             List<EventoDTO> eventos = repository.retrieveDTO();
             return eventos;
         }
+        //Ejercicio 1
+        public IEnumerable<EventoIdEvento> GetIdEvento(int id_ev)
+        {
+            var repository = new EventoRepository();
+            List<EventoIdEvento> eventos = repository.retrieveIdEvento(id_ev);
+            return eventos;
+        }
 
         // POST: api/Evento
         public void Post([FromBody] string value)

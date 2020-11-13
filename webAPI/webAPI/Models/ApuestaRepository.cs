@@ -154,5 +154,38 @@ namespace webAPI.Models
 
 
         }
+
+        //Ejercicio 2
+        internal List<ApuestaCuota> RetrieveApuestaCuota(double val1, double val2)
+        {
+            MySqlConnection conectar = conexion();
+            MySqlCommand command = conectar.CreateCommand();
+            command.CommandText = "SELECT usuario.nombre,apuesta.dinero,mercado.id_Mercado FROM usuario INNER JOIN apuesta ON usuario.email = apuesta.email INNER JOIN mercado ON mercado.id_Mercado = apuesta.id_Mercado WHERE apuesta.cuota BETWEEN @A AND @A2;";
+            command.Parameters.AddWithValue("@A", val1);
+            command.Parameters.AddWithValue("@A2", val2);
+
+            try
+            {
+                conectar.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                ApuestaCuota ap = null;
+                List<ApuestaCuota> listaApuesta = new List<ApuestaCuota>();
+                while (reader.Read())
+                {
+
+                    ap = new ApuestaCuota(reader.GetString(0),reader.GetDouble(1),reader.GetInt32(2));
+                    listaApuesta.Add(ap);
+
+                }
+                conectar.Close();
+                return listaApuesta;
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
     }
 }

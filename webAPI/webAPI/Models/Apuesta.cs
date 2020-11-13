@@ -48,4 +48,19 @@ namespace webAPI.Models
         public double Dinero { get; set; }
         public string Fecha { get; set; }
     }
+    //Ejercicio 2
+    public class ApuestaCuota
+    {
+        public ApuestaCuota(string nombre, double dinero, int id_Mercado)
+        {
+            Nombre = nombre;
+            Dinero = dinero;
+            Id_Mercado = id_Mercado;
+        }
+
+        public double Dinero { get; set; }
+        public string Nombre { get; set; }
+        public int Id_Mercado { get; set; }
+    }
+
 }
